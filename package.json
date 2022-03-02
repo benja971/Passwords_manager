@@ -1,20 +1,20 @@
 {
 	"name": "express-server",
-	"version": "21.12.17",
+	"version": "22.03.01",
 	"description": "Node.js express http/https server",
 	"main": "server.js",
 	"scripts": {
 		"start": "sudo \"$(which node)\" ./src/server.js",
-		"start:dev": "dev.bat",
-		"start:prod": "pm2 start src/server.js --name \"express-server\" && npm run logs",
+		"start:dev": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./dev.ps1",
+		"start:prod": "pm2 start src/server.js --name \"first_pwa\" && npm run logs",
 		"start:nodemon": "nodemon --ignore public/data/ src/server.js",
-		"update:prod": "git reset --hard && git pull $GIT_URL && npm i && npm audit fix && pm2 flush && pm2 restart hds-server && clear && npm run logs",
+		"update:prod": "git reset --hard && git pull $GIT_URL && npm i && npm audit fix && pm2 flush && pm2 restart first_pwa && clear && npm run logs",
 		"sass": "sass --no-source-map --watch public/styles/scss:public/styles/css",
 		"logs": "pm2 logs express-server --raw"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Iconejey/express-server.git"
+		"url": "git+https://github.com/benja971/express-server.git"
 	},
 	"keywords": [
 		"node",
@@ -24,12 +24,12 @@
 		"express",
 		"server"
 	],
-	"author": "Nicolas Gouwy",
+	"author": "NIDDAM Benjamin",
 	"license": "UNLICENCED",
 	"bugs": {
-		"url": "https://github.com/Iconejey/express-server/issues"
+		"url": "https://github.com/benja971/express-server/issues"
 	},
-	"homepage": "https://github.com/Iconejey/express-server#readme",
+	"homepage": "https://github.com/benja971/express-server#readme",
 	"dependencies": {
 		"compression": "^1.7.4",
 		"dotenv": "^10.0.0",
