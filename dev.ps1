@@ -1,8 +1,8 @@
 cd "C:\Program Files\Google\Chrome\Application"
-.\chrome.exe --app="http://localhost"
+.\chrome.exe --app="http://localhost:8001"
 
-cd "C:\Users\benja\OneDrive\Prog\first_pwa"
-wt new-tab PowerShell -c npm run start:nodemon;
+cd "C:\Users\benja\OneDrive\Prog\Passwords_manager"
 wt new-tab PowerShell -c npm run sass;
-
-clear;
+npm update;
+npm i;
+npm run start:nodemon;

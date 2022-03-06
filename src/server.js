@@ -65,7 +65,7 @@ const app = express();
 
 		const authorized = authorized_countries.includes(country);
 		const device = req.useragent.isMobile ? "mobile" : "desktop";
-		const secure = req.hostname === "localhost" || req.protocol === "https" || process.env.HTTPS_PORT === "NULL";
+		const secure = req.hostname === "localhost" || req.protocol === "https";
 		const file = req.url.split("/").slice(-1)[0];
 
 		// Only log navigation requests
@@ -91,20 +91,7 @@ route(app);
 // // // // // // // // // // // // // // //
 
 // HTTP
-if (process.env.HTTP_PORT !== "NULL") {
-	app.listen(process.env.HTTP_PORT, () => {
-		console.log(`${colors.yellow}http${colors.white} server listening...`);
-	});
-}
-
-// HTTPS
-if (process.env.HTTPS_PORT !== "NULL") {
-	const options = {
-		key: fs.readFileSync("./cert/private_key.key"),
-		cert: fs.readFileSync("./cert/ssl_certificate.cer"),
-	};
-
-	https.createServer(options, app).listen(process.env.HTTPS_PORT, () => {
-		console.log(`${colors.green}https${colors.white} server listening...`);
-	});
-}
+const port = 8001;
+app.listen(port, () => {
+	console.log(`${colors.yellow}http${colors.white} server listening...`);
+});
